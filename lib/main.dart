@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:utsmobile/home.dart';
+import 'package:utsmobile/school.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() => runApp(MyApp());
 
@@ -7,12 +10,16 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         theme: ThemeData(
+            // textTheme: GoogleFonts.quicksandTextTheme(Theme.of(context).textTheme),
             brightness: Brightness.dark,
-            // primaryTextTheme: TextTheme(headline1: TextStyle(color: Colors.red)),
-            accentColor: Colors.white),
+            appBarTheme: AppBarTheme(color: Colors.black12),
+            primaryIconTheme: IconThemeData(color: Colors.white),
+            accentIconTheme: IconThemeData(color: Colors.white38),
+            accentColor: Colors.black26),
         home: TabBarKu());
   }
 }
+
 class TabBarKu extends StatefulWidget {
   @override
   _TabBarKuState createState() => _TabBarKuState();
@@ -33,21 +40,27 @@ class _TabBarKuState extends State<TabBarKu> {
         child: Builder(builder: (BuildContext context) {
           TabController tabController = DefaultTabController.of(context);
           tabController.addListener(() {
+            /* On this state, the icon will change to outlined if aint selected */
             setState(() {
-                // print(tabController.index);
-                home = tabController.index != 0 ? Icons.home_outlined : Icons.home;
-                school = tabController.index != 1 ? Icons.school_outlined : Icons.school;
-                person = tabController.index != 2 ?  Icons.person_outline_outlined : Icons.person;
-              });
+              // print(tabController.index);
+              home =
+                  tabController.index != 0 ? Icons.home_outlined : Icons.home;
+              school = tabController.index != 1
+                  ? Icons.school_outlined
+                  : Icons.school;
+              person = tabController.index != 2
+                  ? Icons.person_outline_outlined
+                  : Icons.person;
+            });
           });
           return Scaffold(
               appBar: AppBar(
                 toolbarHeight: 50,
                 bottom: TabBar(
+                    unselectedLabelColor:
+                        Theme.of(context).accentIconTheme.color,
                     indicatorColor: Colors.transparent,
-                    // labelStyle:,
-                    // unselectedLabelColor: Colors.white24,
-                    tabs: tabs = <Tab>[
+                    tabs: [
                       Tab(
                         icon: Icon(home),
                       ),
@@ -60,8 +73,8 @@ class _TabBarKuState extends State<TabBarKu> {
                     ]),
               ),
               body: TabBarView(children: [
-                Text("Lalla"),
-                Text("Lellel"),
+                Home(),
+                School(),
                 Text("Jajja"),
               ]));
         }));
