@@ -38,6 +38,7 @@ class _HomeState extends State<Home> {
   }
 }
 
+// ignore: must_be_immutable
 class Biografi extends StatelessWidget {
   IconData icon;
   String bio;

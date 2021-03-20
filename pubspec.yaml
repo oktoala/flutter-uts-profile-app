@@ -48,12 +48,23 @@ flutter:
   uses-material-design: true
   assets:
     # Image
-    - assets/img/python.png
     - assets/img/avatar3.png
+    # Pemrograman Image
+    - assets/img/python.png
     - assets/img/arduino.png
+    - assets/img/cpp.png
+    - assets/img/java.png
+    - assets/img/tux.png
+    - assets/img/data.png
+    - assets/img/sql.png
     # Markdown
     - assets/markdown/python.md
     - assets/markdown/arduino.md
+    - assets/markdown/cpp.md
+    - assets/markdown/java.md
+    - assets/markdown/tux.md
+    - assets/markdown/data.md
+    - assets/markdown/sql.md
 
   # To add assets to your application, add an assets section, like this:
   # assets:

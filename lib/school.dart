@@ -10,11 +10,29 @@ class School extends StatefulWidget {
 class _SchoolState extends State<School> {
   /* Kumpulan Maps pelajaran */
   var semester1 = {
-    'semester': 'Semester1',
+    'no': 'Semester 1',
     'python': 'assets/img/python.png',
     'arduino': 'assets/img/arduino.png',
     'pythonBlog': 'assets/markdown/python.md',
     'arduinoBlog': 'assets/markdown/arduino.md',
+  };
+
+  var semester2 = {
+    'no': 'Semester 2',
+    'cpp': 'assets/img/cpp.png',
+    'java': 'assets/img/java.png',
+    'tux': 'assets/img/tux.png',
+    'cppBlog': 'assets/markdown/cpp.md',
+    'javaBlog': 'assets/markdown/java.md',
+    'tuxBlog': 'assets/markdown/tux.md',
+  };
+
+  var semester3 = {
+    'no': 'Semester 3',
+    'data': 'assets/img/data.png',
+    'dataBlog': 'assets/markdown/data.md',
+    'sql': 'assets/img/sql.png',
+    'sqlBlog': 'assets/markdown/sql.md',
   };
 
   @override
@@ -27,15 +45,57 @@ class _SchoolState extends State<School> {
             "Apa aja yang sudah dipelajari?",
             style: Theme.of(context).textTheme.headline1,
           ),
-          Learning(
-            semester: semester1['semester'],
+          LearningBar(
+            semester: semester1['no'],
             langauage: [
               LanguageButton(
                 path: semester1['python'],
                 onPressed: () {
-                  Navigator.of(context).push(_createRoute(semester1['semester'],
+                  Navigator.of(context).push(_createRoute(semester1['no'],
                       semester1['python'], semester1['pythonBlog']));
                 },
+              ),
+              LanguageButton(
+                path: semester1['arduino'],
+                onPressed: () {
+                  Navigator.of(context).push(_createRoute(semester1['no'],
+                      semester1['arduino'], semester1['arduinoBlog']));
+                },
+              )
+            ],
+          ),
+          LearningBar(
+            semester: semester2['no'],
+            langauage: [
+              LanguageButton(
+                path: semester2['cpp'],
+                onPressed: () => Navigator.of(context).push(_createRoute(
+                    semester2['no'], semester2['cpp'], semester2['cppBlog'])),
+              ),
+              LanguageButton(
+                path: semester2['java'],
+                onPressed: () => Navigator.of(context).push(_createRoute(
+                    semester2['no'], semester2['java'], semester2['javaBlog'])),
+              ),
+              LanguageButton(
+                path: semester2['tux'],
+                onPressed: () => Navigator.of(context).push(_createRoute(
+                    semester2['no'], semester2['tux'], semester2['tuxBlog'])),
+              ),
+            ],
+          ),
+          LearningBar(
+            semester: semester3['no'],
+            langauage: [
+              LanguageButton(
+                path: semester3['data'],
+                onPressed: () => Navigator.of(context).push(_createRoute(
+                    semester3['no'], semester3['data'], semester3['dataBlog'])),
+              ),
+              LanguageButton(
+                path: semester3['sql'],
+                onPressed: () => Navigator.of(context).push(_createRoute(
+                    semester3['no'], semester3['sql'], semester3['sqlBlog'])),
               ),
             ],
           )
@@ -45,27 +105,18 @@ class _SchoolState extends State<School> {
   }
 }
 
-class SchoolItem extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Learning(
-      
-      
-    );
-  }
-}
-
-class Learning extends StatelessWidget {
+// ignore: must_be_immutable
+class LearningBar extends StatelessWidget {
   String semester;
   List<Widget> langauage;
 
-  Learning({this.semester, this.langauage});
+  LearningBar({this.semester, this.langauage});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.only(left: 10),
-      margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+      margin: EdgeInsets.symmetric(horizontal: 5, vertical: 10),
       decoration: BoxDecoration(
           color: Theme.of(context).appBarTheme.color,
           shape: BoxShape.rectangle,
@@ -88,6 +139,7 @@ class Learning extends StatelessWidget {
   }
 }
 
+// ignore: must_be_immutable
 class LanguageButton extends StatelessWidget {
   String path;
   void Function() onPressed;
@@ -97,14 +149,20 @@ class LanguageButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+        margin: EdgeInsets.zero,
         padding: EdgeInsets.only(left: 10),
+        width: 50,
         height: 50,
         child: ElevatedButton(
             style: ElevatedButton.styleFrom(
-                padding: EdgeInsets.all(0),
+                // alignment: Alignment.,
+                padding: EdgeInsets.zero,
                 primary: Colors.transparent,
                 shadowColor: Colors.transparent),
-            child: Image.asset(path),
+            child: Container(
+                margin: EdgeInsets.symmetric(vertical: 5),
+                height: 40,
+                child: Image.asset(path)),
             onPressed: onPressed));
   }
 }
@@ -120,7 +178,6 @@ Route _createRoute(String semester, String logo, String blog) {
       var begin = Offset(0.0, 1.0);
       var end = Offset.zero;
       var curve = Curves.ease;
-
       var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
 
       return SlideTransition(
@@ -131,6 +188,7 @@ Route _createRoute(String semester, String logo, String blog) {
   );
 }
 
+// ignore: must_be_immutable
 class Blog extends StatelessWidget {
   String semester;
   String logo;
@@ -143,7 +201,11 @@ class Blog extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: Text(semester),
-          actions: [Image.asset(logo)],
+          actions: [
+            Container(
+                padding: EdgeInsets.symmetric(vertical: 5, horizontal: 15),
+                child: Image.asset(logo))
+          ],
         ),
         body: Container(
             child: FutureBuilder(
@@ -152,11 +214,11 @@ class Blog extends StatelessWidget {
           builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
             if (snapshot.hasData) {
               return Markdown(
-                styleSheet: MarkdownStyleSheet(
-                  blockSpacing: 20,
-
-                ),
-                data: snapshot.data);
+                  styleSheet: MarkdownStyleSheet(
+                    blockSpacing: 20,
+                
+                  ),
+                  data: snapshot.data);
             } else {
               return Center(
                 child: CircularProgressIndicator(),
