@@ -15,7 +15,12 @@ class MyApp extends StatelessWidget {
             appBarTheme: AppBarTheme(color: Colors.black12),
             primaryIconTheme: IconThemeData(color: Colors.white),
             accentIconTheme: IconThemeData(color: Colors.white38),
-            accentColor: Colors.black26),
+            accentColor: Colors.black26,
+            textTheme: TextTheme(
+                headline1: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w800))),
         home: TabBarKu());
   }
 }
@@ -26,8 +31,6 @@ class TabBarKu extends StatefulWidget {
 }
 
 class _TabBarKuState extends State<TabBarKu> {
-  TabController tabController;
-  List<Widget> tabs;
 
   IconData home = Icons.home;
   IconData school = Icons.school_outlined;

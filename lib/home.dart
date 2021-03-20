@@ -6,42 +6,12 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  String nama = "Oktavian Yoga Syahputra";
-  String nim = "1915016074";
-
   @override
   Widget build(BuildContext context) {
     return Container(
       child: Column(
         children: [
-          Container(
-            color: Theme.of(context).accentColor,
-            padding: EdgeInsets.all(20),
-            alignment: Alignment.center,
-            // margin: EdgeInsets.only(top: 30, right: 30, left: 30),
-            // color: Colors.red,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Container(
-                    margin: EdgeInsets.only(bottom: 10),
-                    height: 60,
-                    child: Image.asset(
-                      'assets/img/avatar3.png',
-                    )),
-                Column(
-                  // crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      nama,
-                      style: TextStyle(fontWeight: FontWeight.w800),
-                    ),
-                    Text(nim),
-                  ],
-                )
-              ],
-            ),
-          ),
+          PrettyFace(),
           Biografi(
             icon: Icons.person_pin,
             bio: "Hi, nama saya",
@@ -84,7 +54,7 @@ class Biografi extends StatelessWidget {
           shape: BoxShape.rectangle,
           borderRadius: BorderRadius.all(Radius.circular(10))),
       padding: EdgeInsets.symmetric(vertical: 10),
-      margin: EdgeInsets.only(top: 10, right: 10, left: 10),
+      margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
       child: Row(
         // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
@@ -100,6 +70,48 @@ class Biografi extends StatelessWidget {
                     TextStyle(color: Theme.of(context).accentIconTheme.color),
               )),
           Text(value)
+        ],
+      ),
+    );
+  }
+}
+
+class PrettyFace extends StatelessWidget {
+
+  final String _nama = "Oktavian Yoga Syahputra";
+  final String _nim = "1915016074";
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: Theme.of(context).accentColor,
+        shape: BoxShape.rectangle,
+          borderRadius: BorderRadius.all(Radius.circular(10))
+
+      ),
+      margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+      padding: EdgeInsets.all(20),
+      alignment: Alignment.center,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Container(
+              margin: EdgeInsets.only(bottom: 10),
+              height: 90,
+              child: Image.asset(
+                'assets/img/avatar3.png',
+              )),
+          Column(
+            // crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                _nama,
+                style: TextStyle(fontWeight: FontWeight.w800),
+              ),
+              Text(_nim),
+            ],
+          )
         ],
       ),
     );
