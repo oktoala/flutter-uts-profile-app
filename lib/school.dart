@@ -11,28 +11,28 @@ class _SchoolState extends State<School> {
   /* Kumpulan Maps pelajaran */
   var semester1 = {
     'no': 'Semester 1',
-    'python': 'assets/img/python.png',
-    'arduino': 'assets/img/arduino.png',
-    'pythonBlog': 'assets/markdown/python.md',
-    'arduinoBlog': 'assets/markdown/arduino.md',
+    'button1': 'assets/img/python.png', /* Python */
+    'button2': 'assets/img/arduino.png',
+    'blog1': 'assets/markdown/python.md', 
+    'blog2': 'assets/markdown/arduino.md',
   };
 
   var semester2 = {
     'no': 'Semester 2',
-    'cpp': 'assets/img/cpp.png',
-    'java': 'assets/img/java.png',
-    'tux': 'assets/img/tux.png',
-    'cppBlog': 'assets/markdown/cpp.md',
-    'javaBlog': 'assets/markdown/java.md',
-    'tuxBlog': 'assets/markdown/tux.md',
+    'button1': 'assets/img/cpp.png',
+    'blog1': 'assets/markdown/cpp.md',
+    'button2': 'assets/img/java.png',
+    'blog2': 'assets/markdown/java.md',
+    'button3': 'assets/img/tux.png',
+    'blog3': 'assets/markdown/tux.md',
   };
 
   var semester3 = {
     'no': 'Semester 3',
-    'data': 'assets/img/data.png',
-    'dataBlog': 'assets/markdown/data.md',
-    'sql': 'assets/img/sql.png',
-    'sqlBlog': 'assets/markdown/sql.md',
+    'button1': 'assets/img/data.png',
+    'blog1': 'assets/markdown/data.md',
+    'button2': 'assets/img/sql.png',
+    'blog2': 'assets/markdown/sql.md',
   };
 
   @override
@@ -46,59 +46,17 @@ class _SchoolState extends State<School> {
             style: Theme.of(context).textTheme.headline1,
           ),
           LearningBar(
-            semester: semester1['no'],
-            langauage: [
-              LanguageButton(
-                path: semester1['python'],
-                onPressed: () {
-                  Navigator.of(context).push(_createRoute(semester1['no'],
-                      semester1['python'], semester1['pythonBlog']));
-                },
-              ),
-              LanguageButton(
-                path: semester1['arduino'],
-                onPressed: () {
-                  Navigator.of(context).push(_createRoute(semester1['no'],
-                      semester1['arduino'], semester1['arduinoBlog']));
-                },
-              )
-            ],
+            lenght: (semester1.length-1)/2,
+            semesters: semester1,
           ),
           LearningBar(
-            semester: semester2['no'],
-            langauage: [
-              LanguageButton(
-                path: semester2['cpp'],
-                onPressed: () => Navigator.of(context).push(_createRoute(
-                    semester2['no'], semester2['cpp'], semester2['cppBlog'])),
-              ),
-              LanguageButton(
-                path: semester2['java'],
-                onPressed: () => Navigator.of(context).push(_createRoute(
-                    semester2['no'], semester2['java'], semester2['javaBlog'])),
-              ),
-              LanguageButton(
-                path: semester2['tux'],
-                onPressed: () => Navigator.of(context).push(_createRoute(
-                    semester2['no'], semester2['tux'], semester2['tuxBlog'])),
-              ),
-            ],
+            lenght: (semester2.length-1)/2,
+            semesters: semester2,
           ),
           LearningBar(
-            semester: semester3['no'],
-            langauage: [
-              LanguageButton(
-                path: semester3['data'],
-                onPressed: () => Navigator.of(context).push(_createRoute(
-                    semester3['no'], semester3['data'], semester3['dataBlog'])),
-              ),
-              LanguageButton(
-                path: semester3['sql'],
-                onPressed: () => Navigator.of(context).push(_createRoute(
-                    semester3['no'], semester3['sql'], semester3['sqlBlog'])),
-              ),
-            ],
-          )
+            lenght: (semester3.length-1)/2,
+            semesters: semester3,
+          ),
         ],
       ),
     );
@@ -107,10 +65,10 @@ class _SchoolState extends State<School> {
 
 // ignore: must_be_immutable
 class LearningBar extends StatelessWidget {
-  String semester;
-  List<Widget> langauage;
+  Map<String, String> semesters;
+  double lenght;
 
-  LearningBar({this.semester, this.langauage});
+  LearningBar({this.semesters, this.lenght});
 
   @override
   Widget build(BuildContext context) {
@@ -124,13 +82,23 @@ class LearningBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
+          // for (var item in language) ,
           Text(
-            semester,
+            semesters['no'],
             style: TextStyle(fontWeight: FontWeight.w700),
           ),
           Container(
             child: Row(
-              children: langauage,
+              children: [
+                for (var i = 0; i < lenght; i-=-1)
+                  LanguageButton(
+                    path: semesters['button${i + 1}'],
+                    onPressed: () => Navigator.of(context).push(_createRoute(
+                        semesters['no'],
+                        semesters['button${i + 1}'],
+                        semesters['blog${i + 1}'])),
+                  )
+              ],
             ),
           )
         ],
@@ -216,7 +184,6 @@ class Blog extends StatelessWidget {
               return Markdown(
                   styleSheet: MarkdownStyleSheet(
                     blockSpacing: 20,
-                
                   ),
                   data: snapshot.data);
             } else {
