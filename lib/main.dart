@@ -11,6 +11,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         theme: ThemeData(
             // textTheme: GoogleFonts.quicksandTextTheme(Theme.of(context).textTheme),
+            buttonTheme: ButtonThemeData(padding: EdgeInsets.all(0)),
+            elevatedButtonTheme: ElevatedButtonThemeData(style: ButtonStyle()),
             brightness: Brightness.dark,
             appBarTheme: AppBarTheme(color: Colors.black12),
             primaryIconTheme: IconThemeData(color: Colors.white),
@@ -31,7 +33,6 @@ class TabBarKu extends StatefulWidget {
 }
 
 class _TabBarKuState extends State<TabBarKu> {
-
   IconData home = Icons.home;
   IconData school = Icons.school_outlined;
   IconData person = Icons.person_outline_outlined;
@@ -62,7 +63,7 @@ class _TabBarKuState extends State<TabBarKu> {
                 bottom: TabBar(
                     unselectedLabelColor:
                         Theme.of(context).accentIconTheme.color,
-                    indicatorColor: Colors.transparent,
+                    indicatorColor: Colors.white,
                     tabs: [
                       Tab(
                         icon: Icon(home),

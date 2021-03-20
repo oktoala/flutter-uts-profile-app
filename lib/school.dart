@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
 
 class School extends StatefulWidget {
   @override
@@ -6,6 +8,15 @@ class School extends StatefulWidget {
 }
 
 class _SchoolState extends State<School> {
+  /* Kumpulan Maps pelajaran */
+  var semester1 = {
+    'semester': 'Semester1',
+    'python': 'assets/img/python.png',
+    'arduino': 'assets/img/arduino.png',
+    'pythonBlog': 'assets/markdown/python.md',
+    'arduinoBlog': 'assets/markdown/arduino.md',
+  };
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -17,16 +28,29 @@ class _SchoolState extends State<School> {
             style: Theme.of(context).textTheme.headline1,
           ),
           Learning(
-            semester: "Semester 1",
+            semester: semester1['semester'],
             langauage: [
               LanguageButton(
-                path: 'assets/img/python.png',
+                path: semester1['python'],
+                onPressed: () {
+                  Navigator.of(context).push(_createRoute(semester1['semester'],
+                      semester1['python'], semester1['pythonBlog']));
+                },
               ),
-              LanguageButton(path: 'assets/img/arduino.png',)
             ],
           )
         ],
       ),
+    );
+  }
+}
+
+class SchoolItem extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Learning(
+      
+      
     );
   }
 }
@@ -49,7 +73,10 @@ class Learning extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
-          Text(semester, style: TextStyle(fontWeight: FontWeight.w700),),
+          Text(
+            semester,
+            style: TextStyle(fontWeight: FontWeight.w700),
+          ),
           Container(
             child: Row(
               children: langauage,
@@ -63,12 +90,79 @@ class Learning extends StatelessWidget {
 
 class LanguageButton extends StatelessWidget {
   String path;
-  void onPressed;
+  void Function() onPressed;
 
-  LanguageButton({this.path});
+  LanguageButton({this.path, this.onPressed});
 
   @override
   Widget build(BuildContext context) {
-    return Container(padding: EdgeInsets.only(left: 10),height: 50, child: Image.asset(path));
+    return Container(
+        padding: EdgeInsets.only(left: 10),
+        height: 50,
+        child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+                padding: EdgeInsets.all(0),
+                primary: Colors.transparent,
+                shadowColor: Colors.transparent),
+            child: Image.asset(path),
+            onPressed: onPressed));
+  }
+}
+
+Route _createRoute(String semester, String logo, String blog) {
+  return PageRouteBuilder(
+    pageBuilder: (context, animation, secondaryAnimation) => Blog(
+      semester: semester,
+      logo: logo,
+      blog: blog,
+    ),
+    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+      var begin = Offset(0.0, 1.0);
+      var end = Offset.zero;
+      var curve = Curves.ease;
+
+      var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+      return SlideTransition(
+        position: animation.drive(tween),
+        child: child,
+      );
+    },
+  );
+}
+
+class Blog extends StatelessWidget {
+  String semester;
+  String logo;
+  String blog;
+
+  Blog({this.semester, this.logo, this.blog});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: Text(semester),
+          actions: [Image.asset(logo)],
+        ),
+        body: Container(
+            child: FutureBuilder(
+          future: rootBundle.loadString(blog),
+          // ignore: missing_return
+          builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
+            if (snapshot.hasData) {
+              return Markdown(
+                styleSheet: MarkdownStyleSheet(
+                  blockSpacing: 20,
+
+                ),
+                data: snapshot.data);
+            } else {
+              return Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+          },
+        )));
   }
 }
