@@ -6,33 +6,64 @@ class School extends StatefulWidget {
   @override
   _SchoolState createState() => _SchoolState();
 }
-
+/* https://s4w.in/A3egA */
 class _SchoolState extends State<School> {
   /* Kumpulan Maps pelajaran */
   var semester1 = {
     'no': 'Semester 1',
-    'button1': 'assets/img/python.png', /* Python */
+    /* Python */
+    'button1': 'assets/img/python.png',
+    'blog1': 'assets/markdown/python.md',
+    /* Arduino */
     'button2': 'assets/img/arduino.png',
-    'blog1': 'assets/markdown/python.md', 
     'blog2': 'assets/markdown/arduino.md',
   };
 
   var semester2 = {
     'no': 'Semester 2',
+    /* C++ */
     'button1': 'assets/img/cpp.png',
     'blog1': 'assets/markdown/cpp.md',
+    /* Java */
     'button2': 'assets/img/java.png',
     'blog2': 'assets/markdown/java.md',
+    /* Linux */
     'button3': 'assets/img/tux.png',
     'blog3': 'assets/markdown/tux.md',
   };
 
+  var semester25 = {
+    'no': 'Semester 2.5',
+    'button1': 'assets/img/arch.png',
+    'blog1': 'assets/markdown/arch.md',
+  };
+
   var semester3 = {
-    'no': 'Semester 3',
+    'no': 'Semester 3  ',
+    /* Struktur Data */
     'button1': 'assets/img/data.png',
     'blog1': 'assets/markdown/data.md',
+    /* MySQL */
     'button2': 'assets/img/sql.png',
     'blog2': 'assets/markdown/sql.md',
+    'button3': 'assets/img/jupyter.png',
+    'blog3': 'assets/markdown/jupyter.md',
+    'button4': 'assets/img/vlan.png',
+    'blog4': 'assets/markdown/vlan.md',
+  };
+
+  var semester35 = {
+    'no': 'Semester 3.5',
+    'button1': 'assets/img/hugo.png',
+    'blog1': 'assets/markdown/hugo.md',
+    'button2': 'assets/img/nodejs.png',
+    'blog2': 'assets/markdown/nodejs.md',
+  };
+
+  var semester4 = {
+    'no': 'Semester 4',
+    'button1': 'assets/img/flutter.png',
+    'blog1': 'assets/markdown/flutter.md'
   };
 
   @override
@@ -46,17 +77,29 @@ class _SchoolState extends State<School> {
             style: Theme.of(context).textTheme.headline1,
           ),
           LearningBar(
-            lenght: (semester1.length-1)/2,
+            lenght: (semester1.length - 1) / 2,
             semesters: semester1,
           ),
           LearningBar(
-            lenght: (semester2.length-1)/2,
+            lenght: (semester2.length - 1) / 2,
             semesters: semester2,
           ),
           LearningBar(
-            lenght: (semester3.length-1)/2,
+            lenght: (semester25.length - 1) / 2,
+            semesters: semester25,
+          ),
+          LearningBar(
+            lenght: (semester3.length - 1) / 2,
             semesters: semester3,
           ),
+          LearningBar(
+            lenght: (semester35.length - 1) / 2,
+            semesters: semester35,
+          ),
+          LearningBar(
+            lenght: (semester4.length - 1) / 2,
+            semesters: semester4,
+          )
         ],
       ),
     );
@@ -83,14 +126,17 @@ class LearningBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
           // for (var item in language) ,
-          Text(
-            semesters['no'],
-            style: TextStyle(fontWeight: FontWeight.w700),
+          Container(
+            width: 85,
+            child: Text(
+              semesters['no'],
+              style: TextStyle(fontWeight: FontWeight.w700),
+            ),
           ),
           Container(
             child: Row(
               children: [
-                for (var i = 0; i < lenght; i-=-1)
+                for (var i = 0; i < lenght; i -= -1)
                   LanguageButton(
                     path: semesters['button${i + 1}'],
                     onPressed: () => Navigator.of(context).push(_createRoute(

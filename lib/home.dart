@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 
 class Home extends StatefulWidget {
   @override
@@ -9,30 +10,63 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Column(
-        children: [
-          PrettyFace(),
-          Biografi(
-            icon: Icons.person_pin,
-            bio: "Hi, nama saya",
-            value: "Oktavian Yoga Syahputra",
-          ),
-          Biografi(
-            icon: Icons.calendar_today_outlined,
-            bio: "Umur",
-            value: "20 tahun",
-          ),
-          Biografi(
-            icon: Icons.book_outlined,
-            bio: "Hobi saya",
-            value: "Membaca",
-          ),
-          Biografi(
-            icon: Icons.house_outlined,
-            bio: "Tinggal di",
-            value: "Sangasanga",
-          ),
-        ],
+      padding: EdgeInsets.only(bottom: 10),
+      child: SafeArea(
+        child: ListView(
+          children: [
+            PrettyFace(),
+            Biografi(
+              icon: Icons.person_pin,
+              bio: "Nama saya",
+              value: "Oktavian Yoga Syahputra",
+            ),
+            Biografi(
+              icon: Icons.badge,
+              bio: "NIM",
+              value: "1915016074",
+            ),
+            Biografi(
+              icon: Icons.cake_outlined,
+              bio: "Lahir tanggal",
+              value: "29 Oktober 2001",
+            ),
+            Biografi(
+              icon: Icons.calendar_today_outlined,
+              bio: "Umur",
+              value: "20 tahun",
+            ),
+            Biografi(
+              icon: Icons.house_outlined,
+              bio: "Tinggal di",
+              value: "Sangasanga",
+            ),
+            Biografi(
+              icon: Icons.school_outlined,
+              bio: "Kuliah di",
+              value: "Universitas Mulawarman",
+            ),
+            Biografi(
+              icon: Icons.book_outlined,
+              bio: "Hobi saya",
+              value: "Membaca",
+            ),
+            Biografi(
+              icon: Icons.rice_bowl_outlined,
+              bio: "Makanan favorit",
+              value: "Nasi Goreng",
+            ),
+            Biografi(
+              icon: Icons.star_border,
+              bio: "Cita-cita",
+              value: "Crazy Rich-Rt19 💰💰",
+            ),
+            Biografi(
+              icon: Icons.format_quote_outlined,
+              bio: 'Motto',
+              value: "'Me Roaring Myself'",
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -77,21 +111,18 @@ class Biografi extends StatelessWidget {
   }
 }
 
+// ignore: must_be_immutable
 class PrettyFace extends StatelessWidget {
-
-  final String _nama = "Oktavian Yoga Syahputra";
-  final String _nim = "1915016074";
+  int jam = DateTime.now().hour;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Theme.of(context).accentColor,
-        shape: BoxShape.rectangle,
-          borderRadius: BorderRadius.all(Radius.circular(10))
-
-      ),
-      margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+          color: Theme.of(context).accentColor,
+          shape: BoxShape.rectangle,
+          borderRadius: BorderRadius.all(Radius.circular(10))),
+      margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       padding: EdgeInsets.all(20),
       alignment: Alignment.center,
       child: Column(
@@ -107,10 +138,12 @@ class PrettyFace extends StatelessWidget {
             // crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                _nama,
+                jam >= 5 && jam <= 18
+                    ? "☀️ Selamat Datang ☀️"
+                    : "Selamat Malam 🌑",
                 style: TextStyle(fontWeight: FontWeight.w800),
               ),
-              Text(_nim),
+              Text(kIsWeb ? "Web User" : "Mobile User"),
             ],
           )
         ],

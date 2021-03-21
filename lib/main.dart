@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:utsmobile/contact.dart';
 import 'package:utsmobile/home.dart';
 import 'package:utsmobile/school.dart';
 // import 'package:google_fonts/google_fonts.dart';
@@ -35,7 +36,7 @@ class TabBarKu extends StatefulWidget {
 class _TabBarKuState extends State<TabBarKu> {
   IconData home = Icons.home;
   IconData school = Icons.school_outlined;
-  IconData person = Icons.person_outline_outlined;
+  IconData person = Icons.phone_outlined;
 
   @override
   Widget build(BuildContext context) {
@@ -52,9 +53,8 @@ class _TabBarKuState extends State<TabBarKu> {
               school = tabController.index != 1
                   ? Icons.school_outlined
                   : Icons.school;
-              person = tabController.index != 2
-                  ? Icons.person_outline_outlined
-                  : Icons.person;
+              person =
+                  tabController.index != 2 ? Icons.phone_outlined : Icons.phone;
             });
           });
           return Scaffold(
@@ -76,11 +76,7 @@ class _TabBarKuState extends State<TabBarKu> {
                       ),
                     ]),
               ),
-              body: TabBarView(children: [
-                Home(),
-                School(),
-                Text("Jajja"),
-              ]));
+              body: TabBarView(children: [Home(), School(), Contact()]));
         }));
   }
 }

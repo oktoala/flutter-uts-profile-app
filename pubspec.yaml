@@ -49,15 +49,26 @@ flutter:
   assets:
     # Image
     - assets/img/avatar3.png
+    - assets/icons/whatsapp.png
+    - assets/icons/github.png
+    - assets/icons/instagram.png
+    - assets/icons/email.png
+    - assets/icons/twitter.png
+    - assets/icons/website.png
     # Pemrograman Image
     - assets/img/python.png
     - assets/img/arduino.png
     - assets/img/cpp.png
     - assets/img/java.png
     - assets/img/tux.png
+    - assets/img/arch.png
     - assets/img/data.png
     - assets/img/sql.png
-    - assets/img/arch.png
+    - assets/img/jupyter.png
+    - assets/img/vlan.png
+    - assets/img/hugo.png
+    - assets/img/nodejs.png
+    - assets/img/flutter.png
     # Markdown
     - assets/markdown/python.md
     - assets/markdown/arduino.md
@@ -67,6 +78,11 @@ flutter:
     - assets/markdown/data.md
     - assets/markdown/sql.md
     - assets/markdown/arch.md
+    - assets/markdown/jupyter.md
+    - assets/markdown/vlan.md
+    - assets/markdown/hugo.md
+    - assets/markdown/nodejs.md
+    - assets/markdown/flutter.md
 
   # To add assets to your application, add an assets section, like this:
   # assets:
