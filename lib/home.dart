@@ -6,7 +6,25 @@ class Home extends StatefulWidget {
   _HomeState createState() => _HomeState();
 }
 
+List<String> baju = ["black", "white", "grey", "red"];
+
 class _HomeState extends State<Home> {
+  String currbaju = baju[0];
+  int index = 0;
+
+  void onPressed() {
+    if (index == 3) {
+      index = 0;
+    } else {
+      index += 1;
+    }
+
+    setState(() {
+      index = index;
+      currbaju = baju[index];
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -14,7 +32,10 @@ class _HomeState extends State<Home> {
       child: SafeArea(
         child: ListView(
           children: [
-            PrettyFace(),
+            PrettyFace(
+              pathBaju: "assets/gif/$currbaju.gif",
+              onPressed: onPressed,
+            ),
             Biografi(
               icon: Icons.person_pin,
               bio: "Nama saya",
@@ -113,7 +134,11 @@ class Biografi extends StatelessWidget {
 
 // ignore: must_be_immutable
 class PrettyFace extends StatelessWidget {
+  String pathBaju;
+  void Function() onPressed;
   int jam = DateTime.now().hour;
+
+  PrettyFace({this.pathBaju, this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -128,18 +153,32 @@ class PrettyFace extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          ElevatedButton(
-              child: CircleAvatar(
-                backgroundImage: AssetImage(
-                  'assets/gif/black.gif',
+          Container(
+            height: 90,
+            width: 90,
+            margin: EdgeInsets.only(bottom: 10),
+            child: FloatingActionButton(
+              tooltip: "Ganti Baju ",
+              foregroundColor: Theme.of(context).floatingActionButtonTheme.foregroundColor,
+              onPressed: onPressed,
+              child: Container(
+                height: 90,
+                width: 90,
+                // color: Colors.red,
+                child: CircleAvatar(
+                  foregroundImage: AssetImage(
+                    pathBaju,
+                  ),
                 ),
-              )),
+              ),
+            ),
+          ),
           Column(
             // crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 jam >= 5 && jam <= 18
-                    ? "☀️ Selamat Datang ☀️"
+                    ? "☀️ Selamat $pathBaju ☀️"
                     : "🌙 Selamat Malam 🌙",
                 style: TextStyle(fontWeight: FontWeight.w800),
               ),

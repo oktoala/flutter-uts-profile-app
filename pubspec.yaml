@@ -50,6 +50,9 @@ flutter:
   assets:
     # Gif
     - assets/gif/black.gif
+    - assets/gif/grey.gif
+    - assets/gif/red.gif
+    - assets/gif/white.gif
     # Image
     - assets/img/avatar3.png
     - assets/icons/whatsapp.png

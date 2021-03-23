@@ -20,6 +20,9 @@ class MyApp extends StatelessWidget {
             appBarTheme: AppBarTheme(color: Colors.black12),
             primaryIconTheme: IconThemeData(color: Colors.white),
             accentIconTheme: IconThemeData(color: Colors.white38),
+            floatingActionButtonTheme: FloatingActionButtonThemeData(
+              foregroundColor: Colors.red
+            ),
             accentColor: Colors.black26,
             textTheme: TextTheme(
                 headline1: TextStyle(
@@ -78,7 +81,7 @@ class _TabBarKuState extends State<TabBarKu> {
                       ),
                     ]),
               ),
-              body: TabBarView(children: [Home(), School(), Game()]));
+              body: TabBarView(children: [Home(), School(), Contact()]));
         }));
   }
 }
