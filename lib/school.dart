@@ -70,11 +70,13 @@ class _SchoolState extends State<School> {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.all(5),
-      child: Column(
+      child: ListView(
         children: [
-          Text(
-            "Apa aja yang sudah dipelajari?",
-            style: Theme.of(context).textTheme.headline1,
+          Center(
+            child: Text(
+              "Apa aja yang sudah dipelajari?",
+              style: Theme.of(context).textTheme.headline1,
+            ),
           ),
           LearningBar(
             lenght: (semester1.length - 1) / 2,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:utsmobile/contact.dart';
 import 'package:utsmobile/home.dart';
 import 'package:utsmobile/school.dart';
+import 'package:utsmobile/game.dart';
 // import 'package:google_fonts/google_fonts.dart';
 
 void main() => runApp(MyApp());
@@ -10,6 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        title: "UTS Mobile",
         theme: ThemeData(
             // textTheme: GoogleFonts.quicksandTextTheme(Theme.of(context).textTheme),
             buttonTheme: ButtonThemeData(padding: EdgeInsets.all(0)),
@@ -76,7 +78,7 @@ class _TabBarKuState extends State<TabBarKu> {
                       ),
                     ]),
               ),
-              body: TabBarView(children: [Home(), School(), Contact()]));
+              body: TabBarView(children: [Home(), School(), Game()]));
         }));
   }
 }

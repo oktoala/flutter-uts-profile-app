@@ -6,11 +6,13 @@ class Contact extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.only(top: 5),
-      child: Column(
+      child: ListView(
         children: [
-          Text(
-            "Kontak Saya!",
-            style: Theme.of(context).textTheme.headline1,
+          Center(
+            child: Text(
+              "Kontak Saya!",
+              style: Theme.of(context).textTheme.headline1,
+            ),
           ),
           ContactBars(
             pathIcon: 'assets/icons/whatsapp.png',
@@ -77,3 +79,4 @@ class ContactBars extends StatelessWidget {
     );
   }
 }
+/* Nama saya adalah gaul */

@@ -128,11 +128,11 @@ class PrettyFace extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Container(
-              margin: EdgeInsets.only(bottom: 10),
-              height: 90,
-              child: Image.asset(
-                'assets/img/avatar3.png',
+          ElevatedButton(
+              child: CircleAvatar(
+                backgroundImage: AssetImage(
+                  'assets/gif/black.gif',
+                ),
               )),
           Column(
             // crossAxisAlignment: CrossAxisAlignment.start,
@@ -140,7 +140,7 @@ class PrettyFace extends StatelessWidget {
               Text(
                 jam >= 5 && jam <= 18
                     ? "☀️ Selamat Datang ☀️"
-                    : "Selamat Malam 🌑",
+                    : "🌙 Selamat Malam 🌙",
                 style: TextStyle(fontWeight: FontWeight.w800),
               ),
               Text(kIsWeb ? "Web User" : "Mobile User"),

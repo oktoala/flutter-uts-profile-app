@@ -24,6 +24,7 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
+  flutter_gifimage: ^1.0.1
   flutter_markdown: ^0.6.1
   google_fonts: ^2.0.0
 
@@ -47,6 +48,8 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   assets:
+    # Gif
+    - assets/gif/black.gif
     # Image
     - assets/img/avatar3.png
     - assets/icons/whatsapp.png
@@ -55,6 +58,9 @@ flutter:
     - assets/icons/email.png
     - assets/icons/twitter.png
     - assets/icons/website.png
+    - assets/icons/path4.png
+    - assets/icons/walking2.svg
+    - assets/icons/jalan.gif
     # Pemrograman Image
     - assets/img/python.png
     - assets/img/arduino.png
@@ -83,7 +89,6 @@ flutter:
     - assets/markdown/hugo.md
     - assets/markdown/nodejs.md
     - assets/markdown/flutter.md
-
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg
