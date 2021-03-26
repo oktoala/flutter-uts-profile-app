@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:utsmobile/contact.dart';
 import 'package:utsmobile/home.dart';
 import 'package:utsmobile/school.dart';
-import 'package:utsmobile/game.dart';
+
 // import 'package:google_fonts/google_fonts.dart';
 
 void main() => runApp(MyApp());
@@ -20,9 +20,8 @@ class MyApp extends StatelessWidget {
             appBarTheme: AppBarTheme(color: Colors.black12),
             primaryIconTheme: IconThemeData(color: Colors.white),
             accentIconTheme: IconThemeData(color: Colors.white38),
-            floatingActionButtonTheme: FloatingActionButtonThemeData(
-              foregroundColor: Colors.red
-            ),
+            floatingActionButtonTheme:
+                FloatingActionButtonThemeData(foregroundColor: Colors.red),
             accentColor: Colors.black26,
             textTheme: TextTheme(
                 headline1: TextStyle(
@@ -52,7 +51,6 @@ class _TabBarKuState extends State<TabBarKu> {
           tabController.addListener(() {
             /* On this state, the icon will change to outlined if aint selected */
             setState(() {
-              // print(tabController.index);
               home =
                   tabController.index != 0 ? Icons.home_outlined : Icons.home;
               school = tabController.index != 1

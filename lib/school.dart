@@ -6,6 +6,7 @@ class School extends StatefulWidget {
   @override
   _SchoolState createState() => _SchoolState();
 }
+
 /* https://s4w.in/A3egA */
 class _SchoolState extends State<School> {
   /* Kumpulan Maps pelajaran */
@@ -191,9 +192,9 @@ Route _createRoute(String semester, String logo, String blog) {
       blog: blog,
     ),
     transitionsBuilder: (context, animation, secondaryAnimation, child) {
-      var begin = Offset(0.0, 1.0);
+      var begin = Offset(-1.0, -1.0);
       var end = Offset.zero;
-      var curve = Curves.ease;
+      var curve = Curves.easeInOut;
       var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
 
       return SlideTransition(

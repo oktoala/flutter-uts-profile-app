@@ -77,6 +77,11 @@ class _HomeState extends State<Home> {
               value: "Nasi Goreng",
             ),
             Biografi(
+              icon: Icons.favorite_border_outlined,
+              bio: "Kriteria Pasangan",
+              value: "Punya antibodi covid",
+            ),
+            Biografi(
               icon: Icons.star_border,
               bio: "Cita-cita",
               value: "Crazy Rich-Rt19 💰💰",
@@ -159,7 +164,8 @@ class PrettyFace extends StatelessWidget {
             margin: EdgeInsets.only(bottom: 10),
             child: FloatingActionButton(
               tooltip: "Ganti Baju ",
-              foregroundColor: Theme.of(context).floatingActionButtonTheme.foregroundColor,
+              foregroundColor:
+                  Theme.of(context).floatingActionButtonTheme.foregroundColor,
               onPressed: onPressed,
               child: Container(
                 height: 90,
@@ -178,7 +184,7 @@ class PrettyFace extends StatelessWidget {
             children: [
               Text(
                 jam >= 5 && jam <= 18
-                    ? "☀️ Selamat $pathBaju ☀️"
+                    ? "☀️ Selamat Datang ☀️"
                     : "🌙 Selamat Malam 🌙",
                 style: TextStyle(fontWeight: FontWeight.w800),
               ),
