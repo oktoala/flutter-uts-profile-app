@@ -12,7 +12,7 @@ class _HomeState extends State<Home> {
   String currbaju = baju[0];
   int index = 0;
 
-  void onPressed() {
+  void gantiBaju() {
     if (index == 3) {
       index = 0;
     } else {
@@ -33,8 +33,9 @@ class _HomeState extends State<Home> {
         child: ListView(
           children: [
             PrettyFace(
-              pathBaju: "assets/gif/$currbaju.gif",
-              onPressed: onPressed,
+              // ignore: unnecessary_brace_in_string_interps
+              pathBaju: "assets/gif/${currbaju}.gif",
+              onPressed: gantiBaju,
             ),
             Biografi(
               icon: Icons.person_pin,
@@ -68,7 +69,7 @@ class _HomeState extends State<Home> {
             ),
             Biografi(
               icon: Icons.book_outlined,
-              bio: "Hobi saya",
+              bio: "Hobi",
               value: "Membaca",
             ),
             Biografi(
@@ -84,12 +85,12 @@ class _HomeState extends State<Home> {
             Biografi(
               icon: Icons.star_border,
               bio: "Cita-cita",
-              value: "Crazy Rich-Rt19 💰💰",
+              value: "Survive Covid",
             ),
             Biografi(
               icon: Icons.format_quote_outlined,
               bio: 'Motto',
-              value: "'Me Roaring Myself'",
+              value: "Different > No.1",
             ),
           ],
         ),

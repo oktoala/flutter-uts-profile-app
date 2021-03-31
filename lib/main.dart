@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:utsmobile/contact.dart';
 import 'package:utsmobile/home.dart';
 import 'package:utsmobile/school.dart';
-
-// import 'package:google_fonts/google_fonts.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() => runApp(MyApp());
 
@@ -13,7 +12,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         title: "UTS Mobile",
         theme: ThemeData(
-            // textTheme: GoogleFonts.quicksandTextTheme(Theme.of(context).textTheme),
             buttonTheme: ButtonThemeData(padding: EdgeInsets.all(0)),
             elevatedButtonTheme: ElevatedButtonThemeData(style: ButtonStyle()),
             brightness: Brightness.dark,
@@ -24,7 +22,8 @@ class MyApp extends StatelessWidget {
                 FloatingActionButtonThemeData(foregroundColor: Colors.red),
             accentColor: Colors.black26,
             textTheme: TextTheme(
-                headline1: TextStyle(
+              bodyText2: GoogleFonts.notoSans(),
+                headline6: GoogleFonts.quicksand(
                     color: Colors.white,
                     fontSize: 20,
                     fontWeight: FontWeight.w800))),

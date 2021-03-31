@@ -24,10 +24,11 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
-  flutter_gifimage: ^1.0.1
-  flutter_linkify: ^5.0.0
+  # flutter_gifimage: ^1.0.1
+  # flutter_linkify: ^5.0.0
   flutter_markdown: ^0.6.1
   google_fonts: ^2.0.0
+  # url_launcher: ^6.0.3
 
 dev_dependencies:
   flutter_test:
@@ -50,49 +51,49 @@ flutter:
   uses-material-design: true
   assets:
     # Gif
-    - assets/gif/black.gif
-    - assets/gif/grey.gif
-    - assets/gif/red.gif
-    - assets/gif/white.gif
+    - assets/gif/
+    # - assets/gif/grey.gif
+    # - assets/gif/red.gif
+    # - assets/gif/white.gif
     # Image
-    - assets/img/avatar3.png
-    - assets/icons/whatsapp.png
-    - assets/icons/github.png
-    - assets/icons/instagram.png
-    - assets/icons/email.png
-    - assets/icons/twitter.png
-    - assets/icons/website.png
-    - assets/icons/path4.png
-    - assets/icons/walking2.svg
-    - assets/icons/jalan.gif
+    - assets/img/
+    - assets/icons/
+    # - assets/icons/github.png
+    # - assets/icons/instagram.png
+    # - assets/icons/email.png
+    # - assets/icons/twitter.png
+    # - assets/icons/website.png
+    # - assets/icons/path4.png
+    # - assets/icons/walking2.svg
+    # - assets/icons/jalan.gif
     # Pemrograman Image
-    - assets/img/python.png
-    - assets/img/arduino.png
-    - assets/img/cpp.png
-    - assets/img/java.png
-    - assets/img/tux.png
-    - assets/img/arch.png
-    - assets/img/data.png
-    - assets/img/sql.png
-    - assets/img/jupyter.png
-    - assets/img/vlan.png
-    - assets/img/hugo.png
-    - assets/img/nodejs.png
-    - assets/img/flutter.png
+    # - assets/img/python.png
+    # - assets/img/arduino.png
+    # - assets/img/cpp.png
+    # - assets/img/java.png
+    # - assets/img/tux.png
+    # - assets/img/arch.png
+    # - assets/img/data.png
+    # - assets/img/sql.png
+    # - assets/img/jupyter.png
+    # - assets/img/vlan.png
+    # - assets/img/hugo.png
+    # - assets/img/nodejs.png
+    # - assets/img/flutter.png
     # Markdown
-    - assets/markdown/python.md
-    - assets/markdown/arduino.md
-    - assets/markdown/cpp.md
-    - assets/markdown/java.md
-    - assets/markdown/tux.md
-    - assets/markdown/data.md
-    - assets/markdown/sql.md
-    - assets/markdown/arch.md
-    - assets/markdown/jupyter.md
-    - assets/markdown/vlan.md
-    - assets/markdown/hugo.md
-    - assets/markdown/nodejs.md
-    - assets/markdown/flutter.md
+    - assets/markdown/
+    # - assets/markdown/arduino.md
+    # - assets/markdown/cpp.md
+    # - assets/markdown/java.md
+    # - assets/markdown/tux.md
+    # - assets/markdown/data.md
+    # - assets/markdown/sql.md
+    # - assets/markdown/arch.md
+    # - assets/markdown/jupyter.md
+    # - assets/markdown/vlan.md
+    # - assets/markdown/hugo.md
+    # - assets/markdown/nodejs.md
+    # - assets/markdown/flutter.md
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg

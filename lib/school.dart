@@ -74,9 +74,12 @@ class _SchoolState extends State<School> {
       child: ListView(
         children: [
           Center(
-            child: Text(
-              "Apa aja yang sudah dipelajari?",
-              style: Theme.of(context).textTheme.headline1,
+            child: Tooltip(
+              message: "Tekan icon untuk melihat keluh kesah saya",
+              child: Text(
+                "Apa aja yang sudah dipelajari?",
+                style: Theme.of(context).textTheme.headline6,
+              ),
             ),
           ),
           LearningBar(
@@ -192,9 +195,9 @@ Route _createRoute(String semester, String logo, String blog) {
       blog: blog,
     ),
     transitionsBuilder: (context, animation, secondaryAnimation, child) {
-      var begin = Offset(-1.0, -1.0);
+      var begin = Offset(1.0, 0.0);
       var end = Offset.zero;
-      var curve = Curves.easeInOut;
+      var curve = Curves.easeOut;
       var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
 
       return SlideTransition(

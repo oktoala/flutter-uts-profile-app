@@ -11,7 +11,7 @@ class Contact extends StatelessWidget {
           Center(
             child: Text(
               "Kontak Saya!",
-              style: Theme.of(context).textTheme.headline1,
+              style: Theme.of(context).textTheme.headline6,
             ),
           ),
           ContactBars(
@@ -68,15 +68,9 @@ class ContactBars extends StatelessWidget {
                 size: 15,
                 color: Theme.of(context).accentIconTheme.color,
               )),
-          Container(
-            child: Text(
-              kontak,
-              style: TextStyle(color: Colors.white),
-            ),
-          )
+          Text(kontak)
         ],
       ),
     );
   }
 }
-/* Nama saya adalah gaul */

@@ -97,13 +97,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_gifimage:
-    dependency: "direct main"
-    description:
-      name: flutter_gifimage
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.1"
   flutter_launcher_icons:
     dependency: "direct dev"
     description:
@@ -111,13 +104,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.9.0"
-  flutter_linkify:
-    dependency: "direct main"
-    description:
-      name: flutter_linkify
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "5.0.0"
   flutter_markdown:
     dependency: "direct main"
     description:
@@ -143,7 +129,7 @@ packages:
       name: http
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.13.0"
+    version: "0.13.1"
   http_parser:
     dependency: transitive
     description:
@@ -158,13 +144,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.1"
-  linkify:
-    dependency: transitive
-    description:
-      name: linkify
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "4.0.0"
   markdown:
     dependency: transitive
     description:
@@ -262,7 +241,7 @@ packages:
       name: process
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.1.0"
+    version: "4.2.1"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -330,7 +309,7 @@ packages:
       name: win32
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.4"
+    version: "2.0.5"
   xdg_directories:
     dependency: transitive
     description:
