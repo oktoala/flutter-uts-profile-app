@@ -12,18 +12,7 @@ class _HomeState extends State<Home> {
   String currbaju = baju[0];
   int index = 0;
 
-  void gantiBaju() {
-    if (index == 3) {
-      index = 0;
-    } else {
-      index += 1;
-    }
-
-    setState(() {
-      index = index;
-      currbaju = baju[index];
-    });
-  }
+  void gantiBaju() {}
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +24,18 @@ class _HomeState extends State<Home> {
             PrettyFace(
               // ignore: unnecessary_brace_in_string_interps
               pathBaju: "assets/gif/${currbaju}.gif",
-              onPressed: gantiBaju,
+              onPressed: () {
+                if (index == 3) {
+                  index = 0;
+                } else {
+                  index += 1;
+                }
+
+                setState(() {
+                  index = index;
+                  currbaju = baju[index];
+                });
+              },
             ),
             Biografi(
               icon: Icons.person_pin,
@@ -90,7 +90,7 @@ class _HomeState extends State<Home> {
             Biografi(
               icon: Icons.format_quote_outlined,
               bio: 'Motto',
-              value: "Different > No.1",
+              value: "Always try to be different",
             ),
           ],
         ),

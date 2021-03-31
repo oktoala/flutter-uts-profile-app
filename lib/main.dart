@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         title: "UTS Mobile",
+        // darkTheme: ThemeData.dark(),
         theme: ThemeData(
             buttonTheme: ButtonThemeData(padding: EdgeInsets.all(0)),
             elevatedButtonTheme: ElevatedButtonThemeData(style: ButtonStyle()),
@@ -22,11 +23,12 @@ class MyApp extends StatelessWidget {
                 FloatingActionButtonThemeData(foregroundColor: Colors.red),
             accentColor: Colors.black26,
             textTheme: TextTheme(
+              headline6: GoogleFonts.quicksand(
+                  color: Colors.white,
+                  fontSize: 20,
+                  fontWeight: FontWeight.w800),
               bodyText2: GoogleFonts.notoSans(),
-                headline6: GoogleFonts.quicksand(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.w800))),
+            )),
         home: TabBarKu());
   }
 }
