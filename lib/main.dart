@@ -11,7 +11,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         title: "UTS Mobile",
-        // darkTheme: ThemeData.dark(),
         theme: ThemeData(
             buttonTheme: ButtonThemeData(padding: EdgeInsets.all(0)),
             elevatedButtonTheme: ElevatedButtonThemeData(style: ButtonStyle()),

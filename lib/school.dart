@@ -83,27 +83,27 @@ class _SchoolState extends State<School> {
             ),
           ),
           LearningBar(
-            lenght: (semester1.length - 1) / 2,
+            length: (semester1.length - 1) / 2,
             semesters: semester1,
           ),
           LearningBar(
-            lenght: (semester2.length - 1) / 2,
+            length: (semester2.length - 1) / 2,
             semesters: semester2,
           ),
           LearningBar(
-            lenght: (semester25.length - 1) / 2,
+            length: (semester25.length - 1) / 2,
             semesters: semester25,
           ),
           LearningBar(
-            lenght: (semester3.length - 1) / 2,
+            length: (semester3.length - 1) / 2,
             semesters: semester3,
           ),
           LearningBar(
-            lenght: (semester35.length - 1) / 2,
+            length: (semester35.length - 1) / 2,
             semesters: semester35,
           ),
           LearningBar(
-            lenght: (semester4.length - 1) / 2,
+            length: (semester4.length - 1) / 2,
             semesters: semester4,
           )
         ],
@@ -115,9 +115,9 @@ class _SchoolState extends State<School> {
 // ignore: must_be_immutable
 class LearningBar extends StatelessWidget {
   Map<String, String> semesters;
-  double lenght;
+  double length;
 
-  LearningBar({this.semesters, this.lenght});
+  LearningBar({this.semesters, this.length});
 
   @override
   Widget build(BuildContext context) {
@@ -142,7 +142,7 @@ class LearningBar extends StatelessWidget {
           Container(
             child: Row(
               children: [
-                for (var i = 0; i < lenght; i -= -1)
+                for (var i = 0; i < length; i -= -1)
                   LanguageButton(
                     path: semesters['button${i + 1}'],
                     onPressed: () => Navigator.of(context).push(_createRoute(
